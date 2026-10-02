@@ -1,4 +1,5 @@
 from flask import Flask, render_template_string
+import os
 
 app = Flask(__name__)
 
@@ -436,6 +437,7 @@ HTML = """
 
 </div>
 
+
 <!-- YÖNETİM PANELİ -->
 
 <div id="dashboard">
@@ -489,6 +491,7 @@ HTML = """
         </button>
 
     </aside>
+
 
     <main class="main">
 
@@ -603,6 +606,7 @@ HTML = """
 
         </div>
 
+
         <!-- BOTLAR -->
 
         <div id="botsPage" style="display:none">
@@ -630,6 +634,7 @@ HTML = """
 
         </div>
 
+
         <!-- SUNUCULAR -->
 
         <div id="serversPage" style="display:none">
@@ -650,6 +655,7 @@ HTML = """
             </div>
 
         </div>
+
 
         <!-- ROBLOX -->
 
@@ -679,6 +685,7 @@ HTML = """
 
         </div>
 
+
         <!-- AYARLAR -->
 
         <div id="settingsPage" style="display:none">
@@ -703,6 +710,7 @@ HTML = """
 
 </div>
 
+
 <script>
 
 function showDashboard() {
@@ -712,6 +720,7 @@ function showDashboard() {
     document.getElementById("dashboard").style.display = "block";
 
 }
+
 
 function openPage(page, button) {
 
@@ -729,13 +738,16 @@ function openPage(page, button) {
 
     });
 
+
     document.getElementById(page).style.display = "block";
+
 
     document.querySelectorAll(".menu-item").forEach(function(item) {
 
         item.classList.remove("active");
 
     });
+
 
     if (button) {
         button.classList.add("active");
@@ -749,6 +761,23 @@ function openPage(page, button) {
 </html>
 """
 
+
 @app.route("/")
 def index():
     return render_template_string(HTML)
+
+
+if __name__ == "__main__":
+
+    port = int(
+        os.getenv("PORT")
+        or os.getenv("SERVER_PORT")
+        or "5000"
+    )
+
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False,
+        use_reloader=False
+    )
