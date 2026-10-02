@@ -9,7 +9,7 @@ HTML = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dynex | Yönetim Paneli</title>
+    <title>Dynex</title>
 
     <style>
         * {
@@ -25,6 +25,12 @@ HTML = """
             min-height: 100vh;
         }
 
+        button {
+            font-family: inherit;
+        }
+
+        /* NAVBAR */
+
         .navbar {
             height: 72px;
             border-bottom: 1px solid #1c2230;
@@ -32,13 +38,12 @@ HTML = """
             align-items: center;
             justify-content: space-between;
             padding: 0 6%;
-            background: rgba(8, 11, 18, 0.95);
+            background: #080b12;
         }
 
         .logo {
             font-size: 25px;
             font-weight: 800;
-            color: #ffffff;
         }
 
         .logo span {
@@ -47,8 +52,10 @@ HTML = """
 
         .nav-buttons {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
+
+        /* BUTTONS */
 
         .btn {
             border: none;
@@ -57,31 +64,37 @@ HTML = """
             font-size: 14px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.2s;
+            transition: .2s;
         }
 
         .btn:hover {
             transform: translateY(-2px);
         }
 
-        .btn-primary {
+        .primary {
             background: #5865f2;
             color: white;
         }
 
-        .btn-secondary {
+        .secondary {
             background: #151a26;
             color: #dce0ff;
             border: 1px solid #252c3c;
         }
 
+        /* HOME */
+
+        #home {
+            display: block;
+        }
+
         .hero {
             min-height: calc(100vh - 72px);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
         }
 
         .hero-content {
@@ -92,18 +105,18 @@ HTML = """
             display: inline-block;
             padding: 8px 14px;
             border-radius: 30px;
-            background: rgba(88, 101, 242, 0.12);
-            border: 1px solid rgba(88, 101, 242, 0.35);
+            background: rgba(88,101,242,.12);
+            border: 1px solid rgba(88,101,242,.35);
             color: #9da5ff;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 22px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 24px;
         }
 
         h1 {
-            font-size: clamp(42px, 8vw, 78px);
+            font-size: clamp(45px, 8vw, 78px);
             line-height: 1;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         h1 span {
@@ -126,12 +139,14 @@ HTML = """
             flex-wrap: wrap;
         }
 
-        .big-btn {
+        .hero-button {
             padding: 14px 24px;
             font-size: 15px;
         }
 
-        .dashboard {
+        /* DASHBOARD */
+
+        #dashboard {
             display: none;
             min-height: 100vh;
         }
@@ -208,6 +223,8 @@ HTML = """
             color: #cbd1df;
         }
 
+        /* CARDS */
+
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -239,6 +256,8 @@ HTML = """
             margin-top: 8px;
         }
 
+        /* SECTIONS */
+
         .section {
             background: #0e131d;
             border: 1px solid #1e2635;
@@ -255,6 +274,8 @@ HTML = """
             color: #7f8798;
             line-height: 1.6;
         }
+
+        /* SERVER */
 
         .server {
             margin-top: 18px;
@@ -294,12 +315,15 @@ HTML = """
             margin-top: 4px;
         }
 
+        /* MOBILE */
+
         @media (max-width: 800px) {
+
             .navbar {
                 padding: 0 20px;
             }
 
-            .nav-buttons .btn-secondary {
+            .nav-buttons .secondary {
                 display: none;
             }
 
@@ -330,13 +354,13 @@ HTML = """
                 font-size: 0;
             }
 
-            .menu-item:first-letter {
-                font-size: 18px;
-            }
-
             .main {
                 margin-left: 70px;
                 padding: 22px 15px;
+            }
+
+            .profile {
+                display: none;
             }
         }
     </style>
@@ -344,218 +368,240 @@ HTML = """
 
 <body>
 
-    <!-- ANA SAYFA -->
+<!-- ANA SAYFA -->
 
-    <div id="home">
+<div id="home">
 
-        <nav class="navbar">
-            <div class="logo">
-                Dynex<span>.</span>
+    <nav class="navbar">
+
+        <div class="logo">
+            Dynex<span>.</span>
+        </div>
+
+        <div class="nav-buttons">
+
+            <button
+                class="btn secondary"
+                onclick="showDashboard()">
+                Yönetim Paneli
+            </button>
+
+            <button
+                class="btn primary"
+                onclick="showDashboard()">
+                Başla
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                DYNEX YÖNETİM PLATFORMU
             </div>
 
-            <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="showDashboard()">
-                    Yönetim Paneli
+            <h1>
+                Botlarını <span>tek yerden</span> yönet.
+            </h1>
+
+            <p>
+                Discord botlarını, Roblox bağlantılarını ve
+                sunucu ayarlarını tek bir modern yönetim
+                panelinden kontrol et.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="btn primary hero-button"
+                    onclick="showDashboard()">
+                    Yönetim Paneline Gir
                 </button>
 
-                <button class="btn btn-primary" onclick="showDashboard()">
-                    Başla
+                <button
+                    class="btn secondary hero-button"
+                    onclick="showDashboard()">
+                    Daha Fazla
                 </button>
+
             </div>
-        </nav>
 
-        <section class="hero">
+        </div>
 
-            <div class="hero-content">
+    </section>
 
-                <div class="badge">
-                    DYNEX YÖNETİM PLATFORMU
+</div>
+
+
+<!-- YÖNETİM PANELİ -->
+
+<div id="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="side-logo">
+            Dynex<span>.</span>
+        </div>
+
+        <div class="menu-title">
+            Genel
+        </div>
+
+        <button
+            class="menu-item active"
+            onclick="openPage('dashboardPage', this)">
+            🏠 Ana Sayfa
+        </button>
+
+        <button
+            class="menu-item"
+            onclick="openPage('botsPage', this)">
+            🤖 Botlar
+        </button>
+
+        <button
+            class="menu-item"
+            onclick="openPage('serversPage', this)">
+            🛡️ Sunucular
+        </button>
+
+
+        <div class="menu-title">
+            Roblox
+        </div>
+
+        <button
+            class="menu-item"
+            onclick="openPage('robloxPage', this)">
+            🎮 Roblox Hesaplarım
+        </button>
+
+
+        <div class="menu-title">
+            Hesap
+        </div>
+
+        <button
+            class="menu-item"
+            onclick="openPage('settingsPage', this)">
+            ⚙️ Ayarlar
+        </button>
+
+    </aside>
+
+
+    <main class="main">
+
+
+        <!-- DASHBOARD -->
+
+        <div id="dashboardPage">
+
+            <div class="top">
+
+                <div>
+                    <h2>Hoş geldin 👋</h2>
                 </div>
 
-                <h1>
-                    Botlarını <span>tek yerden</span> yönet.
-                </h1>
+                <div class="profile">
+                    Dynex Kullanıcısı
+                </div>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Aktif Botlar
+                    </div>
+
+                    <div class="card-value">
+                        0
+                    </div>
+
+                    <div class="card-info">
+                        Henüz bot eklenmedi
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Discord Sunucuları
+                    </div>
+
+                    <div class="card-value">
+                        0
+                    </div>
+
+                    <div class="card-info">
+                        Bağlı sunucu bulunmuyor
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Roblox Hesapları
+                    </div>
+
+                    <div class="card-value">
+                        0
+                    </div>
+
+                    <div class="card-info">
+                        Hesap bağlanmadı
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <h3>Dynex'e Hoş Geldin</h3>
 
                 <p>
-                    Discord botlarını, Roblox bağlantılarını ve sunucu
-                    ayarlarını tek bir modern yönetim panelinden kontrol et.
+                    Discord botlarını, sunucularını ve Roblox
+                    bağlantılarını tek panelden yönet.
                 </p>
 
-                <div class="hero-buttons">
-
-                    <button
-                        class="btn btn-primary big-btn"
-                        onclick="showDashboard()">
-                        Yönetim Paneline Gir
-                    </button>
-
-                    <button
-                        class="btn btn-secondary big-btn"
-                        onclick="showDashboard()">
-                        Daha Fazla
-                    </button>
-
-                </div>
-
             </div>
 
-        </section>
 
-    </div>
+            <div class="section">
 
+                <h3>Bağlı Sunucular</h3>
 
-    <!-- YÖNETİM PANELİ -->
+                <div class="server">
 
-    <div id="dashboard" class="dashboard">
+                    <div class="server-left">
 
-        <aside class="sidebar">
-
-            <div class="side-logo">
-                Dynex<span>.</span>
-            </div>
-
-            <div class="menu-title">
-                Genel
-            </div>
-
-            <button
-                class="menu-item active"
-                onclick="openPage('dashboardPage')">
-                🏠 Ana Sayfa
-            </button>
-
-            <button
-                class="menu-item"
-                onclick="openPage('botsPage')">
-                🤖 Botlar
-            </button>
-
-            <button
-                class="menu-item"
-                onclick="openPage('serversPage')">
-                🛡️ Sunucular
-            </button>
-
-            <div class="menu-title">
-                Hesap
-            </div>
-
-            <button
-                class="menu-item"
-                onclick="openPage('robloxPage')">
-                🎮 Roblox Hesaplarım
-            </button>
-
-            <button
-                class="menu-item"
-                onclick="openPage('settingsPage')">
-                ⚙️ Ayarlar
-            </button>
-
-        </aside>
-
-
-        <main class="main">
-
-            <!-- DASHBOARD -->
-
-            <div id="dashboardPage">
-
-                <div class="top">
-
-                    <div>
-                        <h2>Hoş geldin 👋</h2>
-                    </div>
-
-                    <div class="profile">
-                        Dynex Kullanıcısı
-                    </div>
-
-                </div>
-
-
-                <div class="cards">
-
-                    <div class="card">
-                        <div class="card-title">
-                            Aktif Botlar
+                        <div class="server-icon">
+                            D
                         </div>
 
-                        <div class="card-value">
-                            0
-                        </div>
+                        <div>
 
-                        <div class="card-info">
-                            Henüz bot eklenmedi
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="card-title">
-                            Discord Sunucuları
-                        </div>
-
-                        <div class="card-value">
-                            0
-                        </div>
-
-                        <div class="card-info">
-                            Bağlı sunucu bulunmuyor
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="card-title">
-                            Roblox Hesapları
-                        </div>
-
-                        <div class="card-value">
-                            0
-                        </div>
-
-                        <div class="card-info">
-                            Hesap bağlanmadı
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="section">
-
-                    <h3>Dynex'e Hoş Geldin</h3>
-
-                    <p>
-                        Bu panel üzerinden Discord botlarını,
-                        sunucularını ve Roblox bağlantılarını
-                        yönetebileceksin.
-                    </p>
-
-                </div>
-
-
-                <div class="section">
-
-                    <h3>Bağlı Sunucular</h3>
-
-                    <div class="server">
-
-                        <div class="server-left">
-
-                            <div class="server-icon">
-                                D
+                            <div class="server-name">
+                                Henüz sunucu bağlanmadı
                             </div>
 
-                            <div>
-                                <div class="server-name">
-                                    Henüz sunucu bağlanmadı
-                                </div>
-
-                                <div class="server-status">
-                                    Bekleniyor
-                                </div>
+                            <div class="server-status">
+                                Bekleniyor
                             </div>
 
                         </div>
@@ -566,142 +612,159 @@ HTML = """
 
             </div>
 
+        </div>
 
-            <!-- BOTLAR -->
 
-            <div id="botsPage" style="display:none">
+        <!-- BOTLAR -->
 
-                <div class="top">
-                    <h2>Botlar</h2>
+        <div id="botsPage" style="display:none">
 
-                    <button class="btn btn-primary">
-                        + Bot Oluştur
-                    </button>
-                </div>
+            <div class="top">
 
-                <div class="section">
+                <h2>Botlar</h2>
 
-                    <h3>Discord Botların</h3>
-
-                    <p>
-                        Burada oluşturduğun ve yönettiğin Discord
-                        botları görünecek.
-                    </p>
-
-                </div>
+                <button class="btn primary">
+                    + Bot Oluştur
+                </button>
 
             </div>
 
+            <div class="section">
 
-            <!-- SUNUCULAR -->
+                <h3>Discord Botların</h3>
 
-            <div id="serversPage" style="display:none">
-
-                <div class="top">
-                    <h2>Sunucular</h2>
-                </div>
-
-                <div class="section">
-
-                    <h3>Discord Sunucuları</h3>
-
-                    <p>
-                        Botlarının bulunduğu Discord sunucuları
-                        burada listelenecek.
-                    </p>
-
-                </div>
+                <p>
+                    Oluşturduğun ve yönettiğin Discord botları
+                    burada görünecek.
+                </p>
 
             </div>
 
+        </div>
 
-            <!-- ROBLOX -->
 
-            <div id="robloxPage" style="display:none">
+        <!-- SUNUCULAR -->
 
-                <div class="top">
-                    <h2>Roblox Hesaplarım</h2>
-                </div>
+        <div id="serversPage" style="display:none">
 
-                <div class="section">
+            <div class="top">
+                <h2>Sunucular</h2>
+            </div>
 
-                    <h3>Roblox Hesabı Bağla</h3>
+            <div class="section">
 
-                    <p>
-                        Roblox hesabın henüz bağlanmadı.
-                        İlerleyen aşamada resmi Roblox bağlantısı
-                        buraya eklenecek.
-                    </p>
+                <h3>Discord Sunucuları</h3>
 
-                    <br>
-
-                    <button class="btn btn-primary">
-                        Roblox Hesabı Bağla
-                    </button>
-
-                </div>
+                <p>
+                    Dynex botlarının bulunduğu Discord
+                    sunucuları burada listelenecek.
+                </p>
 
             </div>
 
+        </div>
 
-            <!-- AYARLAR -->
 
-            <div id="settingsPage" style="display:none">
+        <!-- ROBLOX -->
 
-                <div class="top">
-                    <h2>Ayarlar</h2>
-                </div>
+        <div id="robloxPage" style="display:none">
 
-                <div class="section">
+            <div class="top">
+                <h2>Roblox Hesaplarım</h2>
+            </div>
 
-                    <h3>Hesap Ayarları</h3>
+            <div class="section">
 
-                    <p>
-                        Dynex hesap ve platform ayarları burada
-                        yönetilecek.
-                    </p>
+                <h3>Roblox Hesabı Bağla</h3>
 
-                </div>
+                <p>
+                    Roblox hesabın henüz bağlanmadı.
+                    Resmi Roblox hesap bağlantısı daha sonra
+                    bu bölüme eklenecek.
+                </p>
+
+                <br>
+
+                <button class="btn primary">
+                    Roblox Hesabı Bağla
+                </button>
 
             </div>
 
-        </main>
-
-    </div>
+        </div>
 
 
-    <script>
+        <!-- AYARLAR -->
 
-        function showDashboard() {
+        <div id="settingsPage" style="display:none">
 
-            document.getElementById("home").style.display = "none";
+            <div class="top">
+                <h2>Ayarlar</h2>
+            </div>
 
-            document.getElementById("dashboard").style.display = "block";
+            <div class="section">
 
-        }
+                <h3>Hesap Ayarları</h3>
+
+                <p>
+                    Dynex hesap ayarları burada yönetilecek.
+                </p>
+
+            </div>
+
+        </div>
 
 
-        function openPage(page) {
+    </main>
 
-            const pages = [
-                "dashboardPage",
-                "botsPage",
-                "serversPage",
-                "robloxPage",
-                "settingsPage"
-            ];
+</div>
 
-            pages.forEach(function(id) {
 
-                document.getElementById(id).style.display = "none";
+<script>
 
-            });
+function showDashboard() {
 
-            document.getElementById(page).style.display = "block";
+    document.getElementById("home").style.display = "none";
 
-        }
+    document.getElementById("dashboard").style.display = "block";
 
-    </script>
+}
+
+
+function openPage(page, button) {
+
+    const pages = [
+        "dashboardPage",
+        "botsPage",
+        "serversPage",
+        "robloxPage",
+        "settingsPage"
+    ];
+
+    pages.forEach(function(id) {
+
+        document.getElementById(id).style.display = "none";
+
+    });
+
+
+    document.getElementById(page).style.display = "block";
+
+
+    document.querySelectorAll(".menu-item").forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+
+    if (button) {
+        button.classList.add("active");
+    }
+
+}
+
+</script>
 
 </body>
 </html>
@@ -709,13 +772,5 @@ HTML = """
 
 
 @app.route("/")
-def home():
+def index():
     return render_template_string(HTML)
-
-
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=False
-    )
