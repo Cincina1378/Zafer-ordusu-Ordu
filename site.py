@@ -10,7 +10,7 @@ HTML = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dynex</title>
+    <title>Zafer Ordusu</title>
 
     <style>
         * {
@@ -29,8 +29,6 @@ HTML = """
         button {
             font-family: inherit;
         }
-
-        /* NAVBAR */
 
         .navbar {
             height: 72px;
@@ -56,8 +54,6 @@ HTML = """
             gap: 10px;
         }
 
-        /* BUTTONS */
-
         .btn {
             border: none;
             border-radius: 10px;
@@ -82,8 +78,6 @@ HTML = """
             color: #dce0ff;
             border: 1px solid #252c3c;
         }
-
-        /* HOME */
 
         #home {
             display: block;
@@ -144,8 +138,6 @@ HTML = """
             padding: 14px 24px;
             font-size: 15px;
         }
-
-        /* DASHBOARD */
 
         #dashboard {
             display: none;
@@ -224,8 +216,6 @@ HTML = """
             color: #cbd1df;
         }
 
-        /* CARDS */
-
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -257,8 +247,6 @@ HTML = """
             margin-top: 8px;
         }
 
-        /* SECTIONS */
-
         .section {
             background: #0e131d;
             border: 1px solid #1e2635;
@@ -275,8 +263,6 @@ HTML = """
             color: #7f8798;
             line-height: 1.6;
         }
-
-        /* SERVER */
 
         .server {
             margin-top: 18px;
@@ -315,8 +301,6 @@ HTML = """
             font-size: 12px;
             margin-top: 4px;
         }
-
-        /* MOBILE */
 
         @media (max-width: 800px) {
 
@@ -369,14 +353,12 @@ HTML = """
 
 <body>
 
-<!-- ANA SAYFA -->
-
 <div id="home">
 
     <nav class="navbar">
 
         <div class="logo">
-            Dynex<span>.</span>
+            Zafer Ordusu<span>.</span>
         </div>
 
         <div class="nav-buttons">
@@ -402,16 +384,16 @@ HTML = """
         <div class="hero-content">
 
             <div class="badge">
-                DYNEX YÖNETİM PLATFORMU
+                ZAFER ORDUSU YÖNETİM PLATFORMU
             </div>
 
             <h1>
-                Botlarını <span>tek yerden</span> yönet.
+                Sistemlerini <span>tek yerden</span> yönet.
             </h1>
 
             <p>
-                Discord botlarını, Roblox bağlantılarını ve
-                sunucu ayarlarını tek bir modern yönetim
+                Discord sunucularını, botlarını ve Roblox
+                bağlantılarını tek bir modern yönetim
                 panelinden kontrol et.
             </p>
 
@@ -438,14 +420,12 @@ HTML = """
 </div>
 
 
-<!-- YÖNETİM PANELİ -->
-
 <div id="dashboard">
 
     <aside class="sidebar">
 
         <div class="side-logo">
-            Dynex<span>.</span>
+            Zafer Ordusu<span>.</span>
         </div>
 
         <div class="menu-title">
@@ -495,8 +475,6 @@ HTML = """
 
     <main class="main">
 
-        <!-- DASHBOARD -->
-
         <div id="dashboardPage">
 
             <div class="top">
@@ -506,7 +484,7 @@ HTML = """
                 </div>
 
                 <div class="profile">
-                    Dynex Kullanıcısı
+                    Zafer Ordusu Kullanıcısı
                 </div>
 
             </div>
@@ -565,7 +543,7 @@ HTML = """
 
             <div class="section">
 
-                <h3>Dynex'e Hoş Geldin</h3>
+                <h3>Zafer Ordusu Yönetim Paneli</h3>
 
                 <p>
                     Discord botlarını, sunucularını ve Roblox
@@ -583,7 +561,7 @@ HTML = """
                     <div class="server-left">
 
                         <div class="server-icon">
-                            D
+                            Z
                         </div>
 
                         <div>
@@ -606,8 +584,6 @@ HTML = """
 
         </div>
 
-
-        <!-- BOTLAR -->
 
         <div id="botsPage" style="display:none">
 
@@ -635,8 +611,6 @@ HTML = """
         </div>
 
 
-        <!-- SUNUCULAR -->
-
         <div id="serversPage" style="display:none">
 
             <div class="top">
@@ -648,16 +622,14 @@ HTML = """
                 <h3>Discord Sunucuları</h3>
 
                 <p>
-                    Dynex botlarının bulunduğu Discord
-                    sunucuları burada listelenecek.
+                    Yönetilen Discord sunucuları burada
+                    listelenecek.
                 </p>
 
             </div>
 
         </div>
 
-
-        <!-- ROBLOX -->
 
         <div id="robloxPage" style="display:none">
 
@@ -671,8 +643,7 @@ HTML = """
 
                 <p>
                     Roblox hesabın henüz bağlanmadı.
-                    Resmi Roblox hesap bağlantısı daha sonra
-                    bu bölüme eklenecek.
+                    Hesap bağlantısı daha sonra eklenecek.
                 </p>
 
                 <br>
@@ -686,8 +657,6 @@ HTML = """
         </div>
 
 
-        <!-- AYARLAR -->
-
         <div id="settingsPage" style="display:none">
 
             <div class="top">
@@ -699,7 +668,8 @@ HTML = """
                 <h3>Hesap Ayarları</h3>
 
                 <p>
-                    Dynex hesap ayarları burada yönetilecek.
+                    Zafer Ordusu hesap ayarları burada
+                    yönetilecek.
                 </p>
 
             </div>
@@ -716,7 +686,6 @@ HTML = """
 function showDashboard() {
 
     document.getElementById("home").style.display = "none";
-
     document.getElementById("dashboard").style.display = "block";
 
 }
@@ -738,16 +707,13 @@ function openPage(page, button) {
 
     });
 
-
     document.getElementById(page).style.display = "block";
-
 
     document.querySelectorAll(".menu-item").forEach(function(item) {
 
         item.classList.remove("active");
 
     });
-
 
     if (button) {
         button.classList.add("active");
@@ -770,9 +736,14 @@ def index():
 if __name__ == "__main__":
 
     port = int(
-        os.getenv("PORT")
-        or os.getenv("SERVER_PORT")
+        os.environ.get("SERVER_PORT")
+        or os.environ.get("PORT")
         or "5000"
+    )
+
+    print(
+        f"Zafer Ordusu sitesi başlatılıyor: 0.0.0.0:{port}",
+        flush=True
     )
 
     app.run(
