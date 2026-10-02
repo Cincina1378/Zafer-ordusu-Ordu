@@ -396,7 +396,6 @@ HTML = """
 
     </nav>
 
-
     <section class="hero">
 
         <div class="hero-content">
@@ -437,7 +436,6 @@ HTML = """
 
 </div>
 
-
 <!-- YÖNETİM PANELİ -->
 
 <div id="dashboard">
@@ -470,7 +468,6 @@ HTML = """
             🛡️ Sunucular
         </button>
 
-
         <div class="menu-title">
             Roblox
         </div>
@@ -480,7 +477,6 @@ HTML = """
             onclick="openPage('robloxPage', this)">
             🎮 Roblox Hesaplarım
         </button>
-
 
         <div class="menu-title">
             Hesap
@@ -494,9 +490,7 @@ HTML = """
 
     </aside>
 
-
     <main class="main">
-
 
         <!-- DASHBOARD -->
 
@@ -513,7 +507,6 @@ HTML = """
                 </div>
 
             </div>
-
 
             <div class="cards">
 
@@ -533,7 +526,6 @@ HTML = """
 
                 </div>
 
-
                 <div class="card">
 
                     <div class="card-title">
@@ -549,7 +541,6 @@ HTML = """
                     </div>
 
                 </div>
-
 
                 <div class="card">
 
@@ -569,7 +560,6 @@ HTML = """
 
             </div>
 
-
             <div class="section">
 
                 <h3>Dynex'e Hoş Geldin</h3>
@@ -580,7 +570,6 @@ HTML = """
                 </p>
 
             </div>
-
 
             <div class="section">
 
@@ -614,7 +603,6 @@ HTML = """
 
         </div>
 
-
         <!-- BOTLAR -->
 
         <div id="botsPage" style="display:none">
@@ -642,7 +630,6 @@ HTML = """
 
         </div>
 
-
         <!-- SUNUCULAR -->
 
         <div id="serversPage" style="display:none">
@@ -663,7 +650,6 @@ HTML = """
             </div>
 
         </div>
-
 
         <!-- ROBLOX -->
 
@@ -693,7 +679,6 @@ HTML = """
 
         </div>
 
-
         <!-- AYARLAR -->
 
         <div id="settingsPage" style="display:none">
@@ -714,11 +699,9 @@ HTML = """
 
         </div>
 
-
     </main>
 
 </div>
-
 
 <script>
 
@@ -729,7 +712,6 @@ function showDashboard() {
     document.getElementById("dashboard").style.display = "block";
 
 }
-
 
 function openPage(page, button) {
 
@@ -747,16 +729,13 @@ function openPage(page, button) {
 
     });
 
-
     document.getElementById(page).style.display = "block";
-
 
     document.querySelectorAll(".menu-item").forEach(function(item) {
 
         item.classList.remove("active");
 
     });
-
 
     if (button) {
         button.classList.add("active");
@@ -769,7 +748,6 @@ function openPage(page, button) {
 </body>
 </html>
 """
-
 
 @app.route("/")
 def index():
